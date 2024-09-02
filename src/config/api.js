@@ -1,1 +1,1 @@
-export const BASE_API_URL="https://whatsapp-server-production.up.railway.app/"
+export const BASE_API_URL="https://whatsapp-server-production.up.railway.app"
