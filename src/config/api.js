@@ -1,1 +1,1 @@
-export const BASE_API_URL="http://localhost:5454"
+export const BASE_API_URL="https://whatsapp-server-production.up.railway.app/"
