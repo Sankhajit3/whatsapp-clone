@@ -47,7 +47,7 @@ const Homepage = () => {
   const messageRef = useRef();
 
   const connect = () => {
-    const sock = new SockJS("http://localhost:5454/ws");
+    const sock = new SockJS("https://localhost:5454/ws");
     const temp = over(sock);
     setStompClient(temp);
     const headers = {
@@ -214,7 +214,7 @@ const Homepage = () => {
 
   return (
     <div className="relative">
-      <div className="py-10 py-14 bg-indigo-900 w-full"></div>
+      <div className="w-full py-10 bg-indigo-900 py-14"></div>
       <div className="flex bg-sky-300 h-[90vh] absolute left-[2vw] top-[5vh] w-[96vw]">
         <div className="left w-[30%] bg-emerald-400 h-full">
           {/*profile */}
@@ -229,13 +229,13 @@ const Homepage = () => {
             <div className="w-full">
               {/*home */}
               {
-                <div className="flex justify-between items-cente p-3">
+                <div className="flex justify-between p-3 items-cente">
                   <div
                     onClick={handleNavigate}
                     className="flex items-center space-x-3"
                   >
                     <img
-                      className="rounded-full w-10 h-10 cursor-pointer"
+                      className="w-10 h-10 rounded-full cursor-pointer"
                       src={
                         auth.reqUser?.profile_picture ||
                         "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
@@ -244,7 +244,7 @@ const Homepage = () => {
                     />
                     <p>{auth.reqUser?.full_name}</p>
                   </div>
-                  <div className="space-x-3 text-2xl flex">
+                  <div className="flex space-x-3 text-2xl">
                     <TbCircleDashed
                       className="cursor-pointer"
                       onClick={() => navigate("/status")}
@@ -281,7 +281,7 @@ const Homepage = () => {
                 </div>
               }
 
-              <div className="relative flex justify-center items-center bg-white py-4 px-3 ">
+              <div className="relative flex items-center justify-center px-3 py-4 bg-white ">
                 <input
                   className="border-none outline-none bg-slate-200 rounded-md w-[93%] py-2 pl-9"
                   type="text"
@@ -292,7 +292,7 @@ const Homepage = () => {
                   }}
                   value={querys}
                 />
-                <AiOutlineSearch className="left-6 top-6 absolute" />
+                <AiOutlineSearch className="absolute left-6 top-6" />
                 <div>
                   <BsFilter className="ml-4 text-3xl" />
                 </div>
@@ -377,9 +377,9 @@ const Homepage = () => {
         {/* {message part} */}
         {currentChat && (
           <div className="w-[70%] relative">
-            <div className="header absolute top-0 w-full bg-emerald-100	">
+            <div className="absolute top-0 w-full header bg-emerald-100 ">
               <div className="flex justify-between">
-                <div className="py-3 space-x-4 flex items-center px-3">
+                <div className="flex items-center px-3 py-3 space-x-4">
                   <img
                     className="w-10 h-10 rounded-full"
                     src={
@@ -402,7 +402,7 @@ const Homepage = () => {
                       : currentChat.users[0].full_name}
                   </p>
                 </div>
-                <div className="py-3 flex space-x-4 items-center px-3">
+                <div className="flex items-center px-3 py-3 space-x-4">
                   <AiOutlineSearch />
                   <BsThreeDotsVertical />
                 </div>
@@ -415,7 +415,7 @@ const Homepage = () => {
               onClick={handleEmojiBoxClose}
               className="px-10 h-[85vh] overflow-y-scroll bg-sky-200"
             >
-              <div className="space-y-1 flex flex-col justify-center border-0 mt-20 py-2">
+              <div className="flex flex-col justify-center py-2 mt-20 space-y-1 border-0">
                 {messages.length > 0 &&
                   messages?.map((item, i) => (
                     <MessageCard
@@ -430,8 +430,8 @@ const Homepage = () => {
 
             {/*footer part */}
 
-            <div className="footer bg-slate-400 absolute bottom-0 w-full py-1 text-2xl ">
-              <div className="flex justify-between items-center px-5 relative">
+            <div className="absolute bottom-0 w-full py-1 text-2xl footer bg-slate-400 ">
+              <div className="relative flex items-center justify-between px-5">
                 <BsEmojiSmile
                   onClick={() => setIsOpen(!isOpen)}
                   className="cursor-pointer"
